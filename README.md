@@ -10,6 +10,19 @@ Supporte les trois modes d'intégration documentés :
 
 Documentation officielle de l'API : <https://docs.sfec.gouv.cg/>
 
+> **À propos de ce package**
+>
+> Ce package est un **outil communautaire indépendant**, développé par un tiers pour faciliter l'intégration de l'API SFEC dans des projets Node.js. Il n'est **ni officiel, ni affilié, ni endossé** par l'administration congolaise ou par les éditeurs du système SFEC. La documentation officielle reste la seule référence faisant autorité.
+>
+> **Version `0.x` — interface du package en cours de stabilisation**
+>
+> Tant que la version `1.0.0` n'est pas atteinte, les signatures de fonctions et la structure des objets exposés par ce package peuvent évoluer entre deux versions mineures (cela ne concerne **que** l'interface JavaScript du package, pas l'API SFEC elle-même).
+>
+> **Recommandations :**
+> - Épinglez la version exacte : `"sfec-client": "0.1.0"` (et non `"^0.1.0"`).
+> - Consultez le `CHANGELOG` avant chaque mise à jour.
+> - À partir de la `1.0.0`, l'interface du package suivra strictement [semver](https://semver.org/lang/fr/).
+
 ## Caractéristiques
 
 - **Zero-dependency** — repose uniquement sur Node.js natif (`fetch`, `crypto`, `undici`).
