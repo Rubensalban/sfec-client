@@ -1,0 +1,44 @@
+{
+  "name": "sfec-client",
+  "version": "0.1.0",
+  "description": "Client JavaScript zero-dependency pour l'API SFEC (Systeme de Facturation Electronique Certifiee, Republique du Congo). Supporte les modes ERP, TCC et TFC.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "node --test test/",
+    "test:watch": "node --test --watch test/"
+  },
+  "keywords": [
+    "sfec",
+    "e-facture",
+    "facturation",
+    "congo",
+    "efacture",
+    "certification",
+    "fiscal",
+    "erp",
+    "tcc",
+    "tfc"
+  ],
+  "author": "Ruben's Alban",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rubensalban/sfec-client"
+  },
+  "dependencies": {}
+}
