@@ -1,6 +1,6 @@
 {
   "name": "sfec-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Client JavaScript zero-dependency pour l'API SFEC (Systeme de Facturation Electronique Certifiee, Republique du Congo). Supporte les modes ERP, TCC et TFC.",
   "type": "module",
   "main": "./src/index.js",
