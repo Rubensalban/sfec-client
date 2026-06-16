@@ -34,11 +34,15 @@
     "tcc",
     "tfc"
   ],
-  "author": "Ruben's Alban",
+  "author": "Ruben's Alban <hello@rubensalban.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Rubensalban/sfec-client"
   },
+  "bugs": {
+    "url": "https://github.com/Rubensalban/sfec-client/issues"
+  },
+  "homepage": "https://github.com/Rubensalban/sfec-client#readme",
   "dependencies": {}
 }
