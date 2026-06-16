@@ -242,3 +242,41 @@ export function loadConfig(options = {}) {
   };
   return Object.freeze(config);
 }
+
+/**
+ * Config minimale pour appels publics (sans auth) : uniquement
+ * pour le bootstrap des certificats mTLS via /v1/certificates/claim-with-token.
+ *
+ * Ne sert qu'a un seul cas d'usage : recuperer les certificats. Ne pas l'utiliser
+ * pour d'autres appels.
+ *
+ * @param {{ baseUrl?: string, timeoutMs?: number, retry?: object, processEnv?: object }} [options]
+ */
+export function bootstrapConfig(options = {}) {
+  const envSource = options.processEnv ?? (typeof process !== 'undefined' ? process.env : {});
+  const rawBaseUrl = options.baseUrl ?? envSource[ENV_VAR_BASE_URL];
+  if (!rawBaseUrl) {
+    throw new SfecConfigError(
+      `Variable ${ENV_VAR_BASE_URL} manquante pour le bootstrap des certificats.`,
+      { code: 'SFEC_CONFIG_MISSING_BASE_URL' },
+    );
+  }
+  const baseUrl = validateBaseUrl(rawBaseUrl);
+
+  const timeoutMs = options.timeoutMs ?? DEFAULTS.timeoutMs;
+  validatePositiveInteger(timeoutMs, 'timeoutMs');
+
+  const retryMax = options.retry?.max ?? DEFAULTS.retry.max;
+  const retryBase = options.retry?.baseDelayMs ?? DEFAULTS.retry.baseDelayMs;
+  validateNonNegativeInteger(retryMax, 'retry.max');
+  validatePositiveInteger(retryBase, 'retry.baseDelayMs');
+
+  return Object.freeze({
+    env: 'bootstrap',
+    baseUrl,
+    apiKey: undefined,
+    mtls: undefined,
+    timeoutMs,
+    retry: Object.freeze({ max: retryMax, baseDelayMs: retryBase }),
+  });
+}
