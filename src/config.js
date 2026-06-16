@@ -80,7 +80,11 @@ export function validateBaseUrl(value) {
       { code: 'SFEC_CONFIG_INVALID_BASE_URL' },
     );
   }
-  const isLocal = url.hostname === 'localhost' || url.hostname === '127.0.0.1' || url.hostname === '::1';
+  const isLocal =
+    url.hostname === 'localhost' ||
+    url.hostname === '127.0.0.1' ||
+    url.hostname === '::1' ||
+    url.hostname === '[::1]';
   if (url.protocol !== 'https:' && !isLocal) {
     throw new SfecConfigError(
       `${ENV_VAR_BASE_URL} doit utiliser HTTPS (recu : ${url.protocol}//${url.hostname}). HTTP autorise uniquement pour localhost.`,
